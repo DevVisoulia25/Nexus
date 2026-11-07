@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+data/
+checkpoints/
+features/
+recordings/
+artifacts/stage0/*.tsv
+*.pt
+*.pth
+*.ckpt

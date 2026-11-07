@@ -1,0 +1,90 @@
+{
+  "checked_date": "2026-11-07",
+  "timezone": "Asia/Calcutta",
+  "unisign_commit": "eed438bcb49e30405cd6ccdfcccca330c134e830",
+  "files": [
+    {
+      "key": "uni_readme",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/README.md",
+      "blob_sha": "1d94cf7273337b55041b6e646020d6cffbab8d1e"
+    },
+    {
+      "key": "uni_config",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/config.py",
+      "blob_sha": "170127e78ef15df66810bec0bc55669905085eac"
+    },
+    {
+      "key": "uni_online",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/demo/online_inference.py",
+      "blob_sha": "c621af5af1ad3f90dbe9eca67d3eb5a3793a575e"
+    },
+    {
+      "key": "h2s_script",
+      "url": "https://github.com/how2sign/how2sign.github.io/blob/main/download_how2sign.sh",
+      "blob_sha": "79c3284f0fc9670464073c05a33dd0d91f266d8b"
+    },
+    {
+      "key": "spamo_config",
+      "url": "https://github.com/eddie-euijun-hwang/SpaMo/blob/main/configs/finetune.yaml",
+      "blob_sha": "e99c7265489fd58bbb5349d995f805f0f5e414d3"
+    },
+    {
+      "key": "detail0",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/demo/README.md",
+      "blob_sha": "6e01bd6f957edf838626d11d547095a498d66113"
+    },
+    {
+      "key": "detail1",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/docs/DATASET.md",
+      "blob_sha": "99ed0037c7b96fed6178257d7185cf5ed7120394"
+    },
+    {
+      "key": "detail2",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/models.py",
+      "blob_sha": "a7dee1144f37941dd3f608b38add4a0f174d1401"
+    },
+    {
+      "key": "finalresearch1",
+      "url": "https://github.com/ZechengLi19/Uni-Sign/blob/main/datasets.py",
+      "blob_sha": "de68f50959fd6b72944e4bc2a287843d30317c15"
+    },
+    {
+      "key": "ssvp0",
+      "url": "https://github.com/facebookresearch/ssvp_slt/blob/main/translation/README.md",
+      "blob_sha": "3da4dfc12011d91fa80b2fa9cfc8ea796a86a955"
+    },
+    {
+      "key": "ssvp1",
+      "url": "https://github.com/facebookresearch/ssvp_slt/blob/main/examples/sonar/README.md",
+      "blob_sha": "0f9971f0ec02a754f9b229010a3b1f39b61dff83"
+    }
+  ],
+  "repositories": [
+    {
+      "repository": "ZechengLi19/Uni-Sign",
+      "license": null,
+      "branch": "main"
+    },
+    {
+      "repository": "eddie-euijun-hwang/SpaMo",
+      "license": null,
+      "branch": "main"
+    },
+    {
+      "repository": "streamsl/StreamSLST",
+      "license": null,
+      "branch": "main"
+    },
+    {
+      "repository": "imatge-upc/slt_how2sign_wicv2023",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "branch": "wicv23"
+    }
+  ]
+}

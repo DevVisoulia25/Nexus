@@ -1,0 +1,201 @@
+{
+  "run_utc": "2026-11-06T22:17:39.001024+00:00",
+  "checks": {
+    "unisign_catalog": {
+      "ok": true,
+      "url": "https://huggingface.co/api/models/ZechengLi19/Uni-Sign?blobs=true",
+      "status": 200,
+      "bytes_read": 7319,
+      "content_type": "application/json; charset=utf-8",
+      "content_length": "7319",
+      "content_range": null,
+      "elapsed_s": 0.507,
+      "sha256_of_bytes_read": "34c8aed11512d9d9a340047ca4de4cd996f4d1cd9ad56525895f7da8d3f1ab47",
+      "revision": "eab251b7fe7e8521afc0e67be98add670ea40a0d",
+      "license": "cc-by-nc-4.0",
+      "files": [
+        {
+          "rfilename": "how2sign_pose_format.zip.00",
+          "blobId": "7781ad24f1cb983f011041fc60531b205c9c5fb5",
+          "size": 2147483648,
+          "lfs": {
+            "sha256": "cfbc90d0378b790fd8451f71c2bc15ef7763d5d52025853ff29c0fa2c80fbc80",
+            "size": 2147483648,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_pose_format.zip.01",
+          "blobId": "aabdeabb6b49632d7749b78f23c53121cfac41ca",
+          "size": 2147483648,
+          "lfs": {
+            "sha256": "e1f8ad67748ac9141dd034b5bc3894601276ed921c70f9b35a9cfc379ccb39a8",
+            "size": 2147483648,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_pose_format.zip.02",
+          "blobId": "249b328e27850234f6084da5c9cb873b07f3bf00",
+          "size": 2147483648,
+          "lfs": {
+            "sha256": "8e5d8043a58f100473fdcd340519458fd534bdcb5515ef33a023d1d286f7f8b7",
+            "size": 2147483648,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_pose_format.zip.03",
+          "blobId": "64c5cd71473635c86f152b63636cd3723e0bf1b0",
+          "size": 2023023631,
+          "lfs": {
+            "sha256": "a091c9cd3d19ffcbd8a0009ceca905e32bf06ea1c2bee18b3af1a362ac2a6e24",
+            "size": 2023023631,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_pose_only_slt.pth",
+          "blobId": "4f4a2c5c2a332e4fadb7ca99b6b4462eea65da21",
+          "size": 1186925007,
+          "lfs": {
+            "sha256": "1bfd5f3312f04e4736f0a52f4ef9535916e6de9676a2a0d00c708748683fb00d",
+            "size": 1186925007,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_rgb_format.zip.aa",
+          "blobId": "495c5bc4d72604ba6bae666ec97ef51d4953f80c",
+          "size": 4294967296,
+          "lfs": {
+            "sha256": "cc0d759fab824d4ceebfa09a1551d36f888fc3bd745865435f05fcbd3fbb29bc",
+            "size": 4294967296,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_rgb_format.zip.ab",
+          "blobId": "6b4aa97cc25196fdcc33f25cd19a80d664b41b33",
+          "size": 4294967296,
+          "lfs": {
+            "sha256": "fc37b167c9cc3ad04fc53bf38519b58dc6fa779fbc6bd66afce87102b60d93bd",
+            "size": 4294967296,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_rgb_format.zip.ac",
+          "blobId": "66344188679254f52e590498a93be34f21a903d2",
+          "size": 4294967296,
+          "lfs": {
+            "sha256": "51f523d69e6dcbb7fcc6bff1c52c18d2e52ecea161bea728175073caeaa15d5a",
+            "size": 4294967296,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_rgb_format.zip.ad",
+          "blobId": "e45cbb04e2c94190f989b5590d75d1888b0982fc",
+          "size": 4294967296,
+          "lfs": {
+            "sha256": "3ce8ff20b591b00d48fe7bfac7dd090231ca8c17391aceeff74bd517b19c5fa5",
+            "size": 4294967296,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "how2sign_rgb_format.zip.ae",
+          "blobId": "654209cf1cfdf7a4a55ea5671279b03ac48f2354",
+          "size": 3010900187,
+          "lfs": {
+            "sha256": "6db1e658c7bd17705ac4f9afce34bb0b3a3a6ed4fd1f4f3873abb23315cdb0e1",
+            "size": 3010900187,
+            "pointerSize": 135
+          }
+        }
+      ]
+    },
+    "wicv_catalog": {
+      "ok": false,
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    "validation_original": {
+      "ok": true,
+      "url": "https://drive.google.com/uc?export=download&id=1aBQUClTlZB504JtDISJ0DJlbuYUZCGu3",
+      "status": 200,
+      "bytes_read": 311131,
+      "content_type": "application/octet-stream",
+      "content_length": "311131",
+      "content_range": null,
+      "elapsed_s": 2.417,
+      "sha256_of_bytes_read": "f6f0cef01c3f891ca624a45c71eb7f7748b77362d7418c47567a984384f1537c",
+      "rows": 1741,
+      "columns": [
+        "VIDEO_ID",
+        "VIDEO_NAME",
+        "SENTENCE_ID",
+        "SENTENCE_NAME",
+        "START",
+        "END",
+        "SENTENCE"
+      ]
+    },
+    "validation_realigned": {
+      "ok": true,
+      "url": "https://drive.google.com/uc?export=download&id=1Vpag7VPfdTCCJSao8Pz14rlPfekRMggI",
+      "status": 200,
+      "bytes_read": 311419,
+      "content_type": "application/octet-stream",
+      "content_length": "311419",
+      "content_range": null,
+      "elapsed_s": 2.279,
+      "sha256_of_bytes_read": "1bf5d57ce90d61571776d06a179335d99648d8c94fc22b327d2abb328d26137c",
+      "rows": 1741,
+      "columns": [
+        "VIDEO_ID",
+        "VIDEO_NAME",
+        "SENTENCE_ID",
+        "SENTENCE_NAME",
+        "START_REALIGNED",
+        "END_REALIGNED",
+        "SENTENCE"
+      ]
+    },
+    "unisign_checkpoint_bytes": {
+      "ok": true,
+      "url": "https://huggingface.co/ZechengLi19/Uni-Sign/resolve/eab251b7fe7e8521afc0e67be98add670ea40a0d/how2sign_pose_only_slt.pth",
+      "status": 206,
+      "bytes_read": 65536,
+      "content_type": "application/octet-stream",
+      "content_length": "65536",
+      "content_range": "bytes 0-65535/1186925007",
+      "elapsed_s": 2.068,
+      "sha256_of_bytes_read": "7a5adbd5b0d62d132e01cdb55e14965ddd7a499b45ba759c28c310e8b91369ab",
+      "zip_magic": true,
+      "full_download": false,
+      "compatibility_verified": false
+    },
+    "validation_alignment": {
+      "ok": true,
+      "shared_ids": 1741,
+      "original_only": 0,
+      "realigned_only": 0,
+      "invalid_realigned_intervals": 0,
+      "original_duplicate_ids": 0,
+      "realigned_duplicate_ids": 0,
+      "start_shift": {
+        "median_s": 3.480000000000004,
+        "max_s": 63.74000000000001,
+        "over_0_5s": 1434
+      },
+      "end_shift": {
+        "median_s": 4.77,
+        "max_s": 66.56,
+        "over_0_5s": 1488
+      },
+      "note": "Timestamp differences only; does not establish semantic alignment or decoded-video validity"
+    }
+  },
+  "scope": "Metadata, validation annotations, and bounded checkpoint byte probes; no model execution"
+}
