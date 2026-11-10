@@ -1,0 +1,16 @@
+{
+  "python": "3.11.18",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "torch": "2.5.1+cpu",
+    "mediapipe": "0.10.21",
+    "opencv-contrib-python": "4.11.0.86",
+    "fastapi": "0.115.12",
+    "uvicorn": "0.34.2",
+    "websockets": "15.0.1"
+  },
+  "device": "cpu",
+  "seed": 20261107
+}

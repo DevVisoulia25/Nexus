@@ -1,0 +1,8 @@
+{
+  "sessions": 2,
+  "blank_frames": 10,
+  "false_events": 0,
+  "roundtrip_ms_p50": 93.54904997348785,
+  "roundtrip_ms_p95": 545.8261000275611,
+  "scope": "Generated blank frames through actual local WebSocket/decoder/landmark path; not ASL or webcam validation"
+}

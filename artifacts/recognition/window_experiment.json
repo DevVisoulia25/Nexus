@@ -1,0 +1,64 @@
+{
+  "experiment": "R004",
+  "test_evaluated": false,
+  "promoted": false,
+  "manifest_sha256": "8d789f3a64d0382449d833513afe9e04e537f16249a5373d1a1f6385dddfcf08",
+  "aligned_complete_clip_accuracy": 0.8717948717948718,
+  "aligned_complete_clip_known_accepted": 0,
+  "aligned_complete_clip_correct_accepted": 0,
+  "unknown_calibration_rejected": 19,
+  "ablation": {
+    "baseline_original_engine": {
+      "known_clips": 39,
+      "unknown_clips": 20,
+      "whole_clip_correct": 29,
+      "known_clips_without_decodes": 23,
+      "known_clips_with_any_event": 0,
+      "known_first_event_correct": 0,
+      "known_first_forced_event_correct": 0,
+      "unknown_clips_with_false_event": 0
+    },
+    "aligned_original_engine": {
+      "known_clips": 39,
+      "unknown_clips": 20,
+      "whole_clip_correct": 34,
+      "known_clips_without_decodes": 23,
+      "known_clips_with_any_event": 0,
+      "known_first_event_correct": 0,
+      "known_first_forced_event_correct": 0,
+      "unknown_clips_with_false_event": 0
+    },
+    "baseline_short_engine": {
+      "known_clips": 39,
+      "unknown_clips": 20,
+      "whole_clip_correct": 29,
+      "known_clips_without_decodes": 0,
+      "known_clips_with_any_event": 4,
+      "known_first_event_correct": 2,
+      "known_first_forced_event_correct": 10,
+      "unknown_clips_with_false_event": 4
+    },
+    "aligned_short_engine": {
+      "known_clips": 39,
+      "unknown_clips": 20,
+      "whole_clip_correct": 34,
+      "known_clips_without_decodes": 0,
+      "known_clips_with_any_event": 0,
+      "known_first_event_correct": 0,
+      "known_first_forced_event_correct": 25,
+      "unknown_clips_with_false_event": 1
+    }
+  },
+  "short_policy": {
+    "min_seconds": 0.25,
+    "min_frames": 3,
+    "finalize_on_release": true
+  },
+  "limitations": [
+    "Previously observed development set",
+    "No new negative webcam examples",
+    "Cached-feature replay is not wall-clock real-time",
+    "No synthetic trailing frames; unfinished attempts stay unfinished"
+  ],
+  "wall_s": 13.521925600012764
+}

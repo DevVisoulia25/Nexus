@@ -1,0 +1,55 @@
+{
+  "experiment": "R006",
+  "hypothesis": "Explicit training-negative examples improve rejection of non-vocabulary signs",
+  "changed_factors": "Additional training negatives, explicit background output and background-logit rejection; architecture and C unchanged",
+  "train_known": 147,
+  "train_background_used": 60,
+  "background_excluded_insufficient_tracking": 0,
+  "known_clips": 39,
+  "whole_clip_correct_forced_known": 33,
+  "whole_known_correct_accepted": 0,
+  "unknown_calibration_rejected": 19,
+  "replay_calibrated": {
+    "known_clips": 39,
+    "unknown_clips": 20,
+    "whole_clip_correct": 33,
+    "known_clips_without_decodes": 0,
+    "known_clips_with_any_event": 0,
+    "known_first_event_correct": 0,
+    "known_first_forced_event_correct": 25,
+    "unknown_clips_with_false_event": 2
+  },
+  "replay_background_threshold_zero": {
+    "known_clips": 39,
+    "unknown_clips": 20,
+    "whole_clip_correct": 33,
+    "known_clips_without_decodes": 0,
+    "known_clips_with_any_event": 24,
+    "known_first_event_correct": 23,
+    "known_first_forced_event_correct": 25,
+    "unknown_clips_with_false_event": 13
+  },
+  "wall_s": 48.307810400030576,
+  "metadata": {
+    "feature_version": "holistic-xy-body-hands-face-v1",
+    "steps": 24,
+    "sequence_policy": "visible_hands_last_4s",
+    "rejection_kind": "background_logit_gap",
+    "background_threshold": 10.949702177573663,
+    "model_kind": "temporal_logistic_regression",
+    "experiment": "R006",
+    "seed": 20261107,
+    "manifest_sha256": "8d789f3a64d0382449d833513afe9e04e537f16249a5373d1a1f6385dddfcf08",
+    "background_manifest_sha256": "241c810cd3b0a3d9a0fe2e196d68392a9ae75bfa2c9fd57a069f9159b1687201",
+    "calibration": "Observed 20 unknown dev clips; not independent validation",
+    "experimental": true
+  },
+  "promoted": false,
+  "test_evaluated": false,
+  "limitations": [
+    "Same observed development set used for calibration",
+    "No ordinary-movement negatives",
+    "Cached replay not real-time latency",
+    "No independent webcam or ASL reviewer validation"
+  ]
+}

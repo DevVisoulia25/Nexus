@@ -1,0 +1,49 @@
+{
+  "mode": "original-timing CFR video replay; local decoder/landmarks/engine",
+  "selection": "first three known validation clips in existing manifest order",
+  "model": "signs-active-candidate.npz",
+  "test_evaluated": false,
+  "clips": [
+    {
+      "processed_frames": 17,
+      "stale_dropped_frames": 1,
+      "sampling_skipped_frames": 83,
+      "decoded_frames": 101,
+      "wall_s": 3.462961500044912,
+      "processing_ms_p50": 184.27269998937845,
+      "frame_result_age_ms_p95": 428.72982779720826,
+      "events": [],
+      "max_inflight": 1,
+      "timestamp_source": "CFR index/FPS"
+    },
+    {
+      "processed_frames": 7,
+      "stale_dropped_frames": 58,
+      "sampling_skipped_frames": 24,
+      "decoded_frames": 89,
+      "wall_s": 3.497351499972865,
+      "processing_ms_p50": 415.24929995648563,
+      "frame_result_age_ms_p95": 975.7582192666324,
+      "events": [],
+      "max_inflight": 1,
+      "timestamp_source": "CFR index/FPS"
+    },
+    {
+      "processed_frames": 4,
+      "stale_dropped_frames": 29,
+      "sampling_skipped_frames": 15,
+      "decoded_frames": 48,
+      "wall_s": 2.208561500068754,
+      "processing_ms_p50": 338.0939000635408,
+      "frame_result_age_ms_p95": 1021.5860212320238,
+      "events": [],
+      "max_inflight": 1,
+      "timestamp_source": "CFR index/FPS"
+    }
+  ],
+  "limitations": [
+    "No browser/network/camera",
+    "Frame-result age is not semantic sign latency",
+    "Three predetermined clips are an engineering smoke check, not a quality benchmark"
+  ]
+}

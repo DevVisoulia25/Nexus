@@ -1,0 +1,159 @@
+{
+  "experiment": "R007_audit",
+  "manifest_sha256": "8d789f3a64d0382449d833513afe9e04e537f16249a5373d1a1f6385dddfcf08",
+  "groups": {
+    "known_train": {
+      "n": 147,
+      "standardized_rms": {
+        "p50": 0.7381411790847778,
+        "p95": 1.4602895379066465,
+        "min": 0.4313479959964752,
+        "max": 1.668469786643982
+      },
+      "max_abs_standardized": {
+        "p50": 2.6887552738189697,
+        "p95": 4.669026470184325,
+        "min": 1.352071762084961,
+        "max": 14.352717399597168
+      },
+      "fraction_abs_over_5": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.017876489707475622
+      },
+      "active_frames": {
+        "p50": 5.0,
+        "p95": 11.699999999999989,
+        "min": 2.0,
+        "max": 18.0
+      },
+      "gate_score": {
+        "p50": 5.0738919815759935,
+        "p95": 7.905681638919399,
+        "min": 3.175330081348369,
+        "max": 9.728823000120892
+      }
+    },
+    "known_dev": {
+      "n": 39,
+      "standardized_rms": {
+        "p50": 0.8263460993766785,
+        "p95": 1.3821261763572694,
+        "min": 0.5581414103507996,
+        "max": 1.4423681497573853
+      },
+      "max_abs_standardized": {
+        "p50": 2.472597599029541,
+        "p95": 4.083545589447022,
+        "min": 1.7709460258483887,
+        "max": 6.251222133636475
+      },
+      "fraction_abs_over_5": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0005417118093174431
+      },
+      "active_frames": {
+        "p50": 5.0,
+        "p95": 8.100000000000001,
+        "min": 3.0,
+        "max": 9.0
+      },
+      "gate_score": {
+        "p50": 4.098755835101732,
+        "p95": 7.311201016806436,
+        "min": -2.7547102585834526,
+        "max": 7.7123624654587095
+      }
+    },
+    "unknown_dev": {
+      "n": 20,
+      "standardized_rms": {
+        "p50": 1.0406543612480164,
+        "p95": 1.456588888168335,
+        "min": 0.5125256180763245,
+        "max": 1.6179757118225098
+      },
+      "max_abs_standardized": {
+        "p50": 3.496256113052368,
+        "p95": 4.626176285743713,
+        "min": 2.092639684677124,
+        "max": 4.963801383972168
+      },
+      "fraction_abs_over_5": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "active_frames": {
+        "p50": 5.0,
+        "p95": 8.05,
+        "min": 2.0,
+        "max": 9.0
+      },
+      "gate_score": {
+        "p50": 3.0929974405537637,
+        "p95": 10.997028225714274,
+        "min": -4.802479831391381,
+        "max": 11.896223140385667
+      }
+    }
+  },
+  "known_dev_per_class": {
+    "BOOK": {
+      "n": 4,
+      "forced_correct": 3,
+      "accepted_correct": 0
+    },
+    "HELLO": {
+      "n": 4,
+      "forced_correct": 4,
+      "accepted_correct": 0
+    },
+    "HELP": {
+      "n": 5,
+      "forced_correct": 5,
+      "accepted_correct": 0
+    },
+    "MILK1": {
+      "n": 4,
+      "forced_correct": 4,
+      "accepted_correct": 0
+    },
+    "NO": {
+      "n": 3,
+      "forced_correct": 0,
+      "accepted_correct": 0
+    },
+    "PLEASE": {
+      "n": 4,
+      "forced_correct": 4,
+      "accepted_correct": 0
+    },
+    "SORRY": {
+      "n": 3,
+      "forced_correct": 2,
+      "accepted_correct": 0
+    },
+    "THANKYOU": {
+      "n": 3,
+      "forced_correct": 2,
+      "accepted_correct": 0
+    },
+    "WATER": {
+      "n": 4,
+      "forced_correct": 4,
+      "accepted_correct": 0
+    },
+    "YES": {
+      "n": 5,
+      "forced_correct": 5,
+      "accepted_correct": 0
+    }
+  },
+  "test_evaluated": false,
+  "scope": "Whole available clips; diagnostics only, no threshold tuning or model change"
+}

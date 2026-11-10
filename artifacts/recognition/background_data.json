@@ -1,0 +1,10 @@
+{
+  "train_background_clips": 60,
+  "source_glosses": 20,
+  "transferred_bytes": 46189016,
+  "features_completed": 60,
+  "failure_count": 0,
+  "test_accessed": false,
+  "manifest_sha256": "241c810cd3b0a3d9a0fe2e196d68392a9ae75bfa2c9fd57a069f9159b1687201",
+  "limitation": "Out-of-vocabulary signing only; no ordinary movement negatives"
+}

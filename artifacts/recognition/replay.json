@@ -1,0 +1,21 @@
+{
+  "experiment": "R003",
+  "manifest_sha256": "8d789f3a64d0382449d833513afe9e04e537f16249a5373d1a1f6385dddfcf08",
+  "model_sha256": "aa3ee20cfb4fa5d1052eaf2a65c6e81aac1c54989d80b4765a65fd633b2548d5",
+  "mode": "causal cached-feature diagnostic, accelerated execution",
+  "limitations": [
+    "Not real-time replay or latency measurement",
+    "Quality flags reconstructed from cached masks",
+    "Small previously observed development set",
+    "No ordinary-movement negatives"
+  ],
+  "test_evaluated": false,
+  "known_clips": 39,
+  "unknown_clips": 20,
+  "whole_clip_correct": 29,
+  "known_clips_without_decodes": 23,
+  "known_clips_with_any_event": 0,
+  "known_first_event_correct": 0,
+  "known_first_forced_event_correct": 0,
+  "unknown_clips_with_false_event": 0
+}

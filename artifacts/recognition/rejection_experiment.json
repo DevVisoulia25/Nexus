@@ -1,0 +1,15 @@
+{
+  "experiment": "R002",
+  "hypothesis": "Distance to training visual features offers better rejection than score margin",
+  "changed_factor": "rejection gate only; identical features, classifier, examples and observed negative rejection target",
+  "baseline_known_coverage": 0.02564102564102564,
+  "candidate_known_coverage": 0.05128205128205128,
+  "baseline_correct_and_accepted": 0.02564102564102564,
+  "candidate_correct_and_accepted": 0.05128205128205128,
+  "baseline_unknown_rejection": 0.95,
+  "candidate_unknown_rejection": 0.95,
+  "distance_threshold": 0.45391580462455744,
+  "retained": true,
+  "test_evaluated": false,
+  "limitation": "Same small development set used to calibrate and select; ordinary movement and webcam behavior untested"
+}

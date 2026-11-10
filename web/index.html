@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nexus · Sign studio</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Nexus home"><span class="brand-icon">N</span>NEXUS<span class="edition">SIGN STUDIO</span></a><span class="local"><span class="dot"></span> Local processing</span></header>
+  <main>
+    <section class="intro"><div><div class="eyebrow">A SMALL VOCABULARY. A HUMAN CONNECTION.</div><h1>Let your hands <em>speak.</em></h1><p>Explore individual ASL signs with a camera and your own computer.</p></div><div class="version">RESEARCH PREVIEW <span>01 / CPU BASELINE</span></div></section>
+    <div class="workspace">
+      <section class="camera-panel" aria-label="Camera preview">
+        <div class="panel-top"><span><span id="liveDot" class="dot muted"></span> <span id="cameraState">Camera off</span></span><span class="small">MIRRORED PREVIEW</span></div>
+        <div class="viewport">
+          <video id="video" autoplay playsinline muted></video><canvas id="overlay"></canvas>
+          <div id="placeholder" class="placeholder"><div class="focus-mark">⌁</div><h2>Your space to sign</h2><p>Keep your face, shoulders and both hands<br>inside the frame.</p><span class="camera-note">Your camera starts only when you choose.</span></div>
+          <div class="corner top-left"></div><div class="corner top-right"></div><div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+          <div class="camera-bottom"><span id="quality">Waiting for camera</span><span id="frameRate">— fps</span></div>
+        </div>
+        <div class="controls"><button id="start" class="primary" disabled><span>●</span> Start camera</button><button id="stop" disabled>Stop</button><button id="reset" class="quiet">↻ Reset session</button></div>
+        <div id="status" class="status" role="status" aria-live="polite">Checking the local model…</div>
+      </section>
+      <aside class="results">
+        <section class="recognition-card"><div class="eyebrow">CURRENT SIGN <span class="pill">EXPERIMENTAL</span></div><div id="prediction" class="prediction" aria-live="polite">Ready when<br>you are.</div><p id="predictionHelp">Start your camera, then try one sign at a time.</p><div class="measurement"><span>Processing <strong id="processing">—</strong></span><span>Display delay <strong id="delay">—</strong></span></div></section>
+        <section class="history-card"><div class="section-title"><h2>This session</h2><span id="count">0 signs</span></div><ol id="history"><li class="empty">Stable detections will appear here.<br>This is a sign list, not a translated sentence.</li></ol></section>
+        <div class="privacy"><span>◇</span><p><strong>Stays on your computer.</strong><br>Camera frames are processed in memory by your local server. Nothing is recorded or uploaded to a cloud service.</p></div>
+      </aside>
+    </div>
+    <section class="vocabulary"><div class="section-title"><h2>A vocabulary to start with</h2><span>10 INDIVIDUAL SIGNS</span></div><div id="vocabulary" class="chips"></div><p>These are model labels, not signing instructions. Use a trusted ASL learning resource to learn each sign.</p></section>
+    <section class="notes"><div><span class="step">01</span><h3>Make room for movement</h3><p>Use steady lighting. Keep your upper body and hands visible, with space around your shoulders.</p></div><div><span class="step">02</span><h3>One sign at a time</h3><p>Sign naturally, then lower your hands out of view briefly before the next attempt. Reset clears the current context.</p></div><div><span class="step">03</span><h3>Expect imperfect results</h3><p>This small research model can miss signs or reject familiar ones. It does not understand sentences or replace an interpreter.</p></div></section>
+    <footer><span>NEXUS / RECOGNITION FIRST</span><span id="evaluation">Evaluation pending</span></footer>
+  </main>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

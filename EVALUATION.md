@@ -1,5 +1,36 @@
 # Evaluation contract — draft v0
 
+## Measured development results — 2026-11-08
+
+These are development results, not final acceptance. Final test remains untouched.
+
+| Experiment | Forced-choice full-clip correct | Correct first event in causal cached replay | Unknown clips with event |
+|---|---|---|---|
+| R003 deployed R002 model, original engine | 29/39 | 0/39 | 0/20 |
+| R004 aligned training, original engine | 34/39 | 0/39 | 0/20 |
+| R004 aligned training, short engine, rejection disabled (diagnostic) | 34/39 | 25/39 | Not an unknown-rejection system |
+| R004 aligned training, short engine, rejection enabled | 34/39 | 0/39 | 1/20 |
+| R005 temporal convolution, short engine, rejection enabled | 32/39 | 0/39 | 1/20 |
+| R006 background class, zero threshold | 33/39 (forced known) | 23/39 | 13/20 |
+| R006 background class, dev-calibrated threshold | 33/39 (forced known) | 0/39 | 2/20 |
+| R007 hand geometry, zero threshold | 36/39 (forced known) | 24/39 | 12/20 |
+| R007 hand geometry, dev-calibrated threshold | 36/39 (forced known) | 0/39 | 1/20 |
+
+Original engine never decoded 23/39 known clips. Short-sign policy reduced that
+to 0/39. Policy: minimum 3 frames/0.25 s; optional final prediction after 0.5 s
+of observed no-hands, with body framing still valid. It never fabricates trailing
+frames to finish an attempt. This candidate policy is not deployed by default.
+
+The improvement in forced-choice accuracy does not establish useful recognition.
+Rejection is unresolved. Ordinary movement false activations/minute and
+independent webcam accuracy remain unmeasured. Cached replay is causal but does
+not sleep at source timing and cannot measure camera throughput or semantic
+latency. Quality flags are reconstructed from cached landmark masks.
+
+Transport-only check: two reconnecting loopback sessions, ten generated blank
+frames, zero emitted events. Timings in artifacts/recognition/transport.json
+exclude real signing and cannot be presented as sign response delay.
+
 ## Current deliverable: individual-sign recognition
 
 Scope update 2026-11-07. Use the following draft for the first deliverable; retain the continuous-translation contract below for the later phase. No numerical performance thresholds have been agreed. Set them from development measurements before the final test; do not choose test examples by prediction quality.

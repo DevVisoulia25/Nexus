@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed": 20261107,
+  "dataset": "ASL Citizen",
+  "vocabulary": ["HELLO", "THANKYOU", "PLEASE", "SORRY", "YES", "NO", "HELP", "WATER", "BOOK", "MILK1"],
+  "display_labels": {"HELLO": "Hello", "THANKYOU": "Thank you", "PLEASE": "Please", "SORRY": "Sorry", "YES": "Yes", "NO": "No", "HELP": "Help", "WATER": "Water", "BOOK": "Book", "MILK1": "Milk"},
+  "negative_glosses": ["APPLE", "FATHER", "MOTHER", "FINISH", "DRINK1", "GOOD", "BAD", "WANT1", "EAT1", "NORTH"],
+  "negative_clips_per_gloss": 2,
+  "sample_fps": 6,
+  "sequence_steps": 24,
+  "max_video_seconds": 30,
+  "max_window_seconds": 4,
+  "min_window_seconds": 0.8,
+  "download_budget_mib": 256
+}

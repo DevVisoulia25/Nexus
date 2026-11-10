@@ -1,0 +1,18 @@
+{
+  "source": "ASL Citizen",
+  "train_clips": 147,
+  "development_clips": 59,
+  "train_signers": 26,
+  "development_signers": 5,
+  "download_bytes": 124318335,
+  "features_completed": 206,
+  "failures_final": [],
+  "initial_cap_failure_count": 1,
+  "first_run_wall_s": 394.8163869000273,
+  "retry_with_cache_wall_s": 51.44144279998727,
+  "median_of_clip_median_frame_ms": 174.80460001388565,
+  "median_hand_visible_fraction": 0.3879598662207358,
+  "dataset_video_bytes": 121371202,
+  "feature_bytes": 1251367,
+  "test_accessed": false
+}

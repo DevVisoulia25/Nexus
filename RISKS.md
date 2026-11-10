@@ -20,3 +20,17 @@ Updated 2026-11-07. High/medium describe project impact, not measured probabilit
 | Reproducibility | Medium: older Fairseq environment and upstream path/validation issues | Isolated pinned environment and reusable modules, raw manifests and hashes; fail instead of silent sample replacement | Clean run differs materially from experiment environment |
 
 If live translation is infeasible at INR 0, report the evidence and discuss options: slower provisional updates if still useful before end, an authorized hosted inference budget, a focused model-efficiency experiment, or continued research with the final objective explicitly unresolved. Offline translation is not renamed live.
+# Recognition findings — 2026-11-08
+
+- **Confirmed engine failure:** original frame-count/duration/stability rules
+  emitted no events in development replay; 23/39 known clips never decoded.
+  A short-sign policy is implemented as a separate experimental option.
+- **Confirmed rejection failure:** R004/R005 forced-choice accuracy does not
+  translate into accepted correct signs. Neither candidate is promoted.
+- **Data coverage gap:** existing 20 unknown clips calibrate the gate but do
+  not independently validate it. Training-negative signs are a bounded next
+  experiment; ordinary movements and independent webcam signing remain absent.
+- **Compute:** the 23,914-parameter temporal experiment runs locally in about
+  25 seconds after dependencies install. A GPU is not the immediate bottleneck.
+- **Scope:** continuous sentence translation is unimplemented. No sign-classifier
+  metric or webcam UI demonstration satisfies the later translation gates.

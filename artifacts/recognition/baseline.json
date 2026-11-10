@@ -1,0 +1,241 @@
+{
+  "status": "development_only",
+  "train_n": 147,
+  "known_dev_n": 39,
+  "unknown_dev_n": 20,
+  "fit_s": 5.060439500026405,
+  "closed_set_accuracy": 0.7435897435897436,
+  "closed_set_macro_f1": 0.7193939393939395,
+  "known_coverage_after_rejection": 0.02564102564102564,
+  "known_correct_and_accepted_rate": 0.02564102564102564,
+  "unknown_rejection_rate_calibration_set": 0.95,
+  "classification_report": {
+    "BOOK": {
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1-score": 0.6666666666666666,
+      "support": 4.0
+    },
+    "HELLO": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "HELP": {
+      "precision": 0.6666666666666666,
+      "recall": 0.4,
+      "f1-score": 0.5,
+      "support": 5.0
+    },
+    "MILK1": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "NO": {
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.5,
+      "support": 3.0
+    },
+    "PLEASE": {
+      "precision": 0.5714285714285714,
+      "recall": 1.0,
+      "f1-score": 0.7272727272727273,
+      "support": 4.0
+    },
+    "SORRY": {
+      "precision": 0.4,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.5,
+      "support": 3.0
+    },
+    "THANKYOU": {
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.5,
+      "support": 3.0
+    },
+    "WATER": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "YES": {
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1-score": 0.8,
+      "support": 5.0
+    },
+    "accuracy": 0.7435897435897436,
+    "macro avg": {
+      "precision": 0.8038095238095238,
+      "recall": 0.7283333333333333,
+      "f1-score": 0.7193939393939395,
+      "support": 39.0
+    },
+    "weighted avg": {
+      "precision": 0.8004884004884005,
+      "recall": 0.7435897435897436,
+      "f1-score": 0.7327117327117326,
+      "support": 39.0
+    }
+  },
+  "confusion_labels": [
+    "BOOK",
+    "HELLO",
+    "HELP",
+    "MILK1",
+    "NO",
+    "PLEASE",
+    "SORRY",
+    "THANKYOU",
+    "WATER",
+    "YES"
+  ],
+  "confusion_matrix": [
+    [
+      3,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      4
+    ]
+  ],
+  "metadata": {
+    "feature_version": "holistic-xy-body-hands-face-v1",
+    "steps": 24,
+    "rejection_margin": 5.3557571406458235,
+    "seed": 20261107,
+    "model_kind": "temporal_logistic_regression",
+    "manifest_sha256": "8d789f3a64d0382449d833513afe9e04e537f16249a5373d1a1f6385dddfcf08",
+    "config_sha256": "6665039fd50f653c46273f8d759579eb5273ffe3989787c66ceae33e46980ef8",
+    "calibration": "90th percentile of held-out-label development margins; not independent validation",
+    "dataset": "ASL Citizen",
+    "experimental": true
+  },
+  "test_evaluated": false,
+  "limitations": [
+    "Only ten known classes",
+    "39 known development clips",
+    "Rejection calibrated on same negative development set",
+    "No ordinary-movement negatives or independent webcam evaluation yet",
+    "No competent ASL semantic review"
+  ]
+}

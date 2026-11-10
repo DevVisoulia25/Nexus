@@ -1,5 +1,26 @@
 # Decision log
 
+2026-11-10: R007's handshape representation improves forced-choice development
+classification but does not pass rejection. Keep a separate candidate; no default
+model promotion. Stop interpreting tuning on the same small dev set as independent
+validation. Candidate app CLI and model identity are explicit to avoid mixing
+results. The earlier approval-review spend-cap blocker cleared on the user's
+explicitly authorized publishing retry.
+
+2026-11-08 additions:
+
+- D014: Keep R004/R005 candidates separate; never replace the app model based on
+  forced-choice accuracy while accepted correct-sign coverage remains poor.
+- D015: Short-sign segmentation is an explicit ablation, not a lowered success
+  target. Boundary-only decisions are permissible for isolated signs; they do
+  not satisfy the later pre-utterance-end sentence-caption requirement.
+- D016: User accepts Colab/Kaggle experiments. Start with free Colab-compatible
+  code and local CPU validation; no billable resource authorization. Training
+  environment and local webcam hosting stay separate.
+- D017: Do not increase vocabulary or start sentence model training before the
+  current recognition failure is understood. Next data need is training-only
+  background/unknown examples plus an independent calibration protocol.
+
 2026-11-07. Labels distinguish user constraints from provisional engineering choices. D013 sets the current priority; D001–D012 retain the history and requirements of the later translation phase.
 
 | ID | Status | Decision and rationale | Revisit trigger |

@@ -54,3 +54,91 @@ Success for this experiment: compatible artifact chain, eight traceable paired i
 ## Later experiment template
 
 ID; stage; status (planned/implemented/executed/validated); hypothesis; source commit; data/manifest hashes; seed; environment; configuration; resource cap; exact command; raw outputs; metrics with uncertainty; failures/exclusions; conclusions; smallest next experiment and cost. Register before running. Stage 3 changes exactly one factor with a paired baseline and ablation.
+# Recognition update — 2026-11-08
+
+## 2026-11-10 — R007 audit and hand geometry
+
+User reports mainly BOOK, YES and one unspecified sign worked; no counts or
+framing details supplied. Treat as qualitative evidence, not per-sign accuracy.
+
+Audit of R006: known dev gate-score maximum 7.71, unknown maximum 11.90; known
+dev standardized RMS median 0.83 vs unknown 1.04, with overlapping ranges and no
+unknown standardized coordinates above magnitude five. Simple clipping is not
+supported as the cause/fix for overconfident unknown classifications.
+
+R007 hypothesis: hand-relative finger geometry improves separation. Changed only
+representation versus R006. Added wrist-centered, palm-width-scaled XY coordinates
+with masks, preserving hand orientation and all original body-relative features.
+Same 147 known/60 background training clips, split, C=.1, seed and calibration
+rule. No new downloads. Run: `python -m nexus.background_experiment --handshape`.
+
+Result: forced-known full-clip correct 36/39 (R006 33/39). Zero background threshold:
+24/39 correct first events, 12/20 unknown clips with false events (R006 23/39 and
+13/20). Strict calibrated threshold: zero correct first known events and 1/20
+unknown false-event clips. Runtime 34.73 s on CPU. This improves forced-choice
+classification but fails usable open-set recognition; not promoted. Test untouched.
+
+Next smallest useful step: a fresh, predetermined calibration/evaluation protocol
+with unknown and ordinary-movement examples, plus visual review of false-positive
+windows. Repeated tuning on the current 59 dev clips cannot establish generalization.
+Existing caches support further diagnostics at no download/GPU cost. An ASL-fluent
+reviewer remains unavailable, limiting claims about independent signing examples.
+
+R003 executed: causal cached-feature replay of the deployed R002 model. No
+events on 39 known clips; 23 never decoded. Even disabling rejection produced
+zero stable events with the original timing policy. This isolates an engine
+timing failure independently of rejection. It is not wall-clock real-time replay.
+
+R004 executed: active-hand training window alignment improved forced-choice
+accuracy 29/39 to 34/39. A separately ablated short-sign policy decoded all 39
+clips; without rejection its first event was correct on 25/39. With rejection,
+zero correct first known events and one unknown false event remained. Candidate
+not promoted. Report: artifacts/recognition/window_experiment.json. CPU run
+13.52 seconds; no new video download. Likely remaining causes: gate calibration
+on full clips versus partial windows, too little background data, weak model
+generalization. No causal attribution beyond the controlled comparisons.
+
+R005 implementation: fixed 60-epoch small temporal convolution classifier with
+the same active windows, split and training-only normalization. See the measured
+report if present; Colab execution is not claimed. Candidate export/reload parity
+and CPU classifier timings are included in its runner. It does not auto-promote.
+
+R005 executed locally on CPU: 32/39 full-clip correct, 24/39 correct first forced
+replay events, zero correct accepted replay events. This fails to improve on
+R004; candidate not promoted. The 23,914-parameter model exports to 118,664 bytes
+and reloads with identical class predictions. Final reproducible run: 25.03 s;
+CPU classifier p50 5.18 ms/p95 6.53 ms, excluding landmark extraction. An earlier
+run exposed float32 threshold rounding; calibration comparisons now use float64
+and 19/20 unknown dev clips are rejected. Fixed-seed retraining reproduced 32/39.
+
+R006 next experiment: add 60 training-only negative signs from 20 glosses,
+excluding both known labels and the existing unknown-development glosses.
+Compare an explicit background-class gate against zero-threshold background
+classification, retaining the aligned linear architecture. Download capped at
+96 MiB and two extraction workers. No ordinary-movement coverage is implied.
+
+R006 executed: 46,189,016 downloaded bytes, 60/60 features valid. Training/evaluation
+took 48.31 seconds. Forced-known accuracy 33/39. At background threshold zero,
+23/39 first events were correct but 13/20 unknown clips emitted a false event.
+Strict dev-calibrated threshold: zero correct known first events, 2/20 unknown
+clips emitted an event. Rejected candidate; a larger model is not supported by
+this result. An observed Windows process snapshot during R006 showed peak working
+set 154,836,992 bytes; this is a process snapshot, not whole-application peak RAM.
+Next smallest diagnostic: inspect false-positive windows and compare visual
+features, with fresh calibration data before further model selection. Existing
+features suffice for that diagnostic; no additional paid compute is needed.
+
+Timed replay engineering check executed: first three known dev clips in fixed
+manifest order, original CFR timing, real decoder/landmark/engine processing,
+single in-flight frame and stale-frame dropping. Processed 17/7/4 frames with
+1/58/29 stale drops; no events. Per-clip median computation 184/415/338 ms and
+p95 frame-result age 429/976/1022 ms. See artifacts/recognition/timed_replay.json.
+This is evidence of extraction throughput limitations, not a recognition latency
+success. No browser/camera/network is included. Next efficiency comparison must
+measure hand-tracking fidelity as well as speed before lowering image resolution.
+
+R001 executed: 147 training clips; 39 known and 20 unknown development clips. Forced-choice accuracy 29/39; accepted known examples 1/39 after margin rejection. See artifacts/recognition/baseline.json.
+
+R002 executed: change rejection gate only to nearest-training-feature distance. Accepted known examples 2/39; unknown rejection 19/20 on the same calibration set. See artifacts/recognition/rejection_experiment.json. This is not adequate recognition and does not establish generalization. The user reports inconsistent webcam recognition.
+
+Next diagnostic (planned, not executed): compare full-clip inference with causal replay through RecognitionSession using cached landmarks. Hypothesis: different handling of missing hands and incomplete windows contributes to missed recognition. Resource cost: no new download or GPU; runtime to be measured. Fix and compare window preparation before training a larger model. Free Colab temporal-model training is proposed, not executed.

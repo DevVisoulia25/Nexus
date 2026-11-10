@@ -2,6 +2,13 @@
 
 ## Current priority — updated 2026-11-07
 
+Implementation update 2026-11-08: the experimental vocabulary is HELLO,
+THANKYOU, PLEASE, SORRY, YES, NO, HELP, WATER, BOOK and dataset variant MILK1.
+The webcam prototype exists but has not met recognition quality requirements.
+The user authorizes free Colab/Kaggle training experiments; paid resources remain
+unauthorized. Local CPU experiments and a private Colab workflow are implemented.
+Training and the final local application remain separate environments.
+
 Following the user's scope discussion, the first deliverable is local webcam recognition of a limited set of individual ASL signs. Continuous live ASL-to-English translation remains a later research objective. Success on individual signs does not satisfy the translation contract below or guarantee that a classifier can be extended into a translator.
 
 Initial proposal: start with 10 signs, selected after checking reliable labeled data, licensing, signer coverage and visual ambiguity. Support movement with short temporal sequences when needed. Display recognized sign labels, include unknown/no-sign handling, avoid duplicate detections while holding a sign, and provide camera preview plus start/stop/reset. Run inference on the existing laptop; measure actual CPU speed and memory before selecting an architecture. No cloud or paid services are required by this scope decision.
