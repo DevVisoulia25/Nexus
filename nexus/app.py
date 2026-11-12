@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import argparse
+import hashlib
 from concurrent.futures import ThreadPoolExecutor
 import json
 import struct
@@ -19,6 +20,7 @@ from fastapi.staticfiles import StaticFiles
 from nexus.engine import RecognitionSession
 from nexus.features import LandmarkExtractor
 from nexus.model import SignModel
+from nexus.diagnostics import DiagnosticModel
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "configs/recognition.json").read_text())
@@ -40,7 +42,7 @@ def status():
     report = json.loads(report_path.read_text()) if report_path.exists() and MODEL_PATH == ROOT / "models/signs.npz" else None
     return {"model_ready": MODEL_PATH.exists(), "model_name": MODEL_PATH.name,
             "recognition_validated": False, "session_options": SESSION_OPTIONS, "labels": CONFIG["display_labels"],
-            "experimental": True, "retention": "No camera frames or landmarks are saved.",
+            "experimental": True, "retention": "Server saves no camera frames or landmarks. Guided browser recording is optional and local.",
             "evaluation": None if not report else {k: report[k] for k in (
                 "status", "known_dev_n", "closed_set_accuracy", "known_coverage_after_rejection", "test_evaluated")}}
 
@@ -84,19 +86,26 @@ async def webcam(websocket: WebSocket):
     try:
         await websocket.accept()
         extractor = await loop.run_in_executor(executor, LandmarkExtractor)
-        model = SignModel(MODEL_PATH)
+        model = DiagnosticModel(SignModel(MODEL_PATH))
         session = RecognitionSession(model, max_seconds=CONFIG["max_window_seconds"], **SESSION_OPTIONS)
-        await websocket.send_json({"type": "ready"})
+        await websocket.send_json({"type": "ready", "model": {"name": MODEL_PATH.name,
+                                  "sha256": hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
+                                  "metadata": model.model.metadata},
+                                  "session_options": {"max_seconds": CONFIG["max_window_seconds"],
+                                                      "min_seconds": session.min_seconds, "min_frames": session.min_frames,
+                                                      "finalize_on_release": session.finalize_on_release}})
         last_seq = -1
 
         def process(payload):
             started = time.perf_counter()
             timestamp, seq, frame = decode_packet(payload)
             points, quality, overlay = extractor.process(frame)
+            model.begin_frame()
             result = session.update(points, quality, timestamp)
             return {"type": "frame", "seq": seq, "capture_ms": timestamp * 1000,
                     "processing_ms": (time.perf_counter() - started) * 1000,
-                    "quality": quality, "points": overlay.tolist(), "result": result}
+                    "quality": quality, "points": overlay.tolist(), "result": result,
+                    "diagnostics": list(model.decisions)}
 
         while True:
             # Browser sends the next frame only after the prior response.

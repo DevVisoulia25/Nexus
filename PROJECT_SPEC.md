@@ -2,6 +2,11 @@
 
 ## Current priority — updated 2026-11-07
 
+2026-11-13 diagnostic workflow: guided attempts and an optional fixed 39-attempt
+set support failure analysis. Video recording is opt-in, local and without audio;
+reports exclude image and landmark arrays. No automatic cloud upload or training.
+This is evaluation tooling, not completion of the recognition or translation goal.
+
 Implementation update 2026-11-08: the experimental vocabulary is HELLO,
 THANKYOU, PLEASE, SORRY, YES, NO, HELP, WATER, BOOK and dataset variant MILK1.
 The webcam prototype exists but has not met recognition quality requirements.

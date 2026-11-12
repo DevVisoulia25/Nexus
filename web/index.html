@@ -24,9 +24,26 @@
       <aside class="results">
         <section class="recognition-card"><div class="eyebrow">CURRENT SIGN <span class="pill">EXPERIMENTAL</span></div><div id="prediction" class="prediction" aria-live="polite">Ready when<br>you are.</div><p id="predictionHelp">Start your camera, then try one sign at a time.</p><div class="measurement"><span>Processing <strong id="processing">—</strong></span><span>Display delay <strong id="delay">—</strong></span></div></section>
         <section class="history-card"><div class="section-title"><h2>This session</h2><span id="count">0 signs</span></div><ol id="history"><li class="empty">Stable detections will appear here.<br>This is a sign list, not a translated sentence.</li></ol></section>
-        <div class="privacy"><span>◇</span><p><strong>Stays on your computer.</strong><br>Camera frames are processed in memory by your local server. Nothing is recorded or uploaded to a cloud service.</p></div>
+        <div class="privacy"><span>◇</span><p><strong>Stays on your computer.</strong><br>No cloud upload. Video recording is off by default. Guided testing can keep an optional video in browser memory for you to download.</p></div>
       </aside>
     </div>
+    <section class="guided" aria-labelledby="guidedTitle">
+      <div class="section-title"><h2 id="guidedTitle">Guided camera checks</h2><span id="testProgress">0 attempts</span></div>
+      <p>Find out where an attempt stops: tracking, model decisions, rejection or event finalization. Intended labels are not verified ASL ground truth.</p>
+      <div class="test-fields">
+        <label>Test order<select id="testProtocol"><option value="single-v1">One diagnostic attempt</option><option value="fixed-39-v1">Fixed set: 10 signs + 3 movements, three rounds</option></select></label>
+        <label>Purpose<select id="testPurpose"><option value="debug">Debugging</option><option value="calibration">Future calibration</option><option value="evaluation">Evaluation — hide live predictions</option></select></label>
+        <label id="testIntentLabel">Intended sign or movement<select id="testIntent"></select></label>
+      </div>
+      <p id="testPrompt">Choose an intended sign or ordinary movement.</p>
+      <p>Each attempt starts a fresh camera session and lasts 10 seconds. When “Begin” appears, perform the sign once, then lower your hands. For a movement prompt, move naturally without signing. Interrupted attempts stay in the report and do not advance the fixed set.</p>
+      <label class="record-option"><input id="recordVideo" type="checkbox"> Keep an optional local video of this attempt (no audio)</label>
+      <p class="test-retention">Only the latest video is kept in browser memory, up to 16 MiB. Download it before starting another attempt. Reports contain timing, tracking flags and model decisions, not images or landmark coordinates. Nothing is automatically saved, uploaded or used for training. Reloading loses undownloaded results.</p>
+      <div class="test-buttons"><button id="beginTest" class="primary" disabled>Start guided attempt</button><button id="cancelTest" disabled>Cancel attempt</button><button id="exportTests" disabled>Download diagnostic report</button><button id="viewReport" disabled>View / copy report</button><button id="downloadVideo" disabled>Download latest video</button><button id="clearTests" disabled>Clear diagnostics</button></div>
+      <p id="testStatus" role="status" aria-live="polite">Ready for a camera check. A completed attempt is not a recognition-quality pass.</p>
+      <div id="reportPanel" hidden><label for="reportText">Local diagnostic report — select and copy if downloads are unavailable</label><textarea id="reportText" readonly rows="8" spellcheck="false"></textarea></div>
+      <ol id="testResults" aria-label="Diagnostic results"></ol>
+    </section>
     <section class="vocabulary"><div class="section-title"><h2>A vocabulary to start with</h2><span>10 INDIVIDUAL SIGNS</span></div><div id="vocabulary" class="chips"></div><p>These are model labels, not signing instructions. Use a trusted ASL learning resource to learn each sign.</p></section>
     <section class="notes"><div><span class="step">01</span><h3>Make room for movement</h3><p>Use steady lighting. Keep your upper body and hands visible, with space around your shoulders.</p></div><div><span class="step">02</span><h3>One sign at a time</h3><p>Sign naturally, then lower your hands out of view briefly before the next attempt. Reset clears the current context.</p></div><div><span class="step">03</span><h3>Expect imperfect results</h3><p>This small research model can miss signs or reject familiar ones. It does not understand sentences or replace an interpreter.</p></div></section>
     <footer><span>NEXUS / RECOGNITION FIRST</span><span id="evaluation">Evaluation pending</span></footer>

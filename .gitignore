@@ -24,3 +24,6 @@ playwright-report/
 test-results/
 *.zip
 artifacts/stage0/unisign_metadata.json
+nexus-diagnostics*.json
+nexus-*.webm
+nexus-*.mp4

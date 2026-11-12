@@ -1,14 +1,29 @@
 # Project status
 
-Updated: 2026-11-10 (Asia/Calcutta).
+Updated: 2026-11-13 (Asia/Calcutta).
+
+Guided testing is implemented: ten-second attempts, optional local video (off by
+default), fixed 39-attempt plan, explicit debug/calibration/evaluation purposes,
+model hashes and per-frame decision traces. Reports have a visible copy fallback
+and a summary CLI. No automatic training, upload or evaluation-data reuse.
+
+Verification: 27 Python tests and 6 JavaScript tests passed. Synthetic browser
+completion, cancellation, fixed-plan cancellation behavior, visible JSON parsing,
+and optional video-blob creation passed. Native download completion is unverified
+in the in-app browser. No independent user webcam accuracy was collected.
+
+Next action requires real observations: run debugging attempts for Book, Yes,
+one failing sign the user knows, and the three ordinary movements; export the
+report. Inspect failures before changing thresholds or launching Colab training.
+Detailed steps: docs/GUIDED_TESTING.md. Recognition quality gate remains unmet.
 
 User feedback: mainly BOOK, YES and one unidentified sign appeared to work in
 their webcam test. Framing conditions and counts were not provided, so this is
 qualitative evidence only. Continue the rejection audit before model escalation.
 
 Repository update: the earlier approval-review spend-cap failure cleared on the
-user-authorized retry. Project files are staged for commit and push; private
-datasets, feature caches, weights and environments remain excluded.
+user-authorized retry. Prototype commit 20a1a1d was pushed successfully; the guided
+testing follow-up is being prepared. Private data and weights remain excluded.
 
 ## Current assessment — recognition quality gate NOT met
 

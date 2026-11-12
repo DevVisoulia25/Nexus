@@ -17,8 +17,14 @@ Read [dataset terms and provenance](docs/DATA_MODEL.md) before preparation.
 
 Open http://127.0.0.1:8765. Allow the camera, keep hands/face/shoulders visible,
 and try one sign at a time. Start, Stop and Reset control the session. Frames
-stay in memory on the loopback server; no video is recorded. Closing or hiding
+stay in memory on the loopback server; video recording is off by default. Guided
+testing offers explicitly enabled local recording and report export. Closing or hiding
 the tab releases the camera. A detected label is not evidence of correct ASL.
+
+**Next practical step:** use [Guided camera checks](docs/GUIDED_TESTING.md) to
+compare Book, Yes, a failing sign you know, and ordinary movements. Reports
+distinguish missing model decisions, rejection and event finalization. Export
+them locally for diagnosis; no automatic training occurs.
 
 Preparation retrieves only the bounded subset, not the 45.9 GB archive. Research
 videos, features and weights are excluded from Git. Do not redistribute them.

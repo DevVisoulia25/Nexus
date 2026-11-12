@@ -52,6 +52,11 @@ An internal score-margin cutoff is calibrated to reject at least 90% of the 20 n
 
 ## Live processing and limits
 
+Guided testing adds opt-in browser video capture and explicit local report export.
+Default operation still records no video. The backend never persists frames or
+landmarks; browser reports omit coordinate arrays. See docs/GUIDED_TESTING.md for
+retention limits, intended-label caveats and separate calibration/evaluation use.
+
 The browser sends JPEG frames only to the loopback server, one request in flight. The backend processes with one worker per session and accepts one active session. It stores at most 60 feature frames / 4 seconds of context; no camera frames or landmarks are written to disk. UI history contains at most 30 sign events and is cleared on Reset. Tab hiding, Stop, disconnection and watchdog failure release the camera. Captured timestamps and sequence IDs reject stale/out-of-order input; gaps clear context.
 
 The candidate classifier runs at most every 0.4 seconds after at least 0.8 seconds / six usable frames. Three matching accepted candidates emit one event; holding the same sign does not repeatedly append it. Lowering hands out of view briefly or resetting begins another attempt. This rule is a provisional engineering policy, not a validated linguistic boundary detector. Stability is not correctness. The display delay is capture-to-result age, not semantic sign latency.

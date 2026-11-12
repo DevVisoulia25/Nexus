@@ -1,5 +1,10 @@
 # Decision log
 
+2026-11-13: collect real camera diagnostic evidence before further model selection.
+Reports remain in browser memory until explicit export; raw video is optional,
+local and off by default. Labels represent user intent pending ASL review. Keep
+debug/calibration/evaluation purposes separate and never automatically retrain.
+
 2026-11-10: R007's handshape representation improves forced-choice development
 classification but does not pass rejection. Keep a separate candidate; no default
 model promotion. Stop interpreting tuning on the same small dev set as independent

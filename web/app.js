@@ -1,8 +1,10 @@
+import {createGuided} from "./guided.js";
 const $ = (id) => document.getElementById(id);
 const video = $("video"), overlay = $("overlay"), canvas = document.createElement("canvas");
 const ctx = overlay.getContext("2d"), capture = canvas.getContext("2d");
 let stream, socket, generation = 0, running = false, seq = 0, labels = {}, timer, watchdog;
 let lastSent = 0, lastResponse = 0, history = [], modelReady = false;
+const guided = createGuided({startCamera: start, stopCamera: stop, getStream: () => stream});
 
 function message(text) { $("status").textContent = text; }
 function candidate(label, state) {
@@ -25,6 +27,7 @@ function renderHistory() {
   $("count").textContent = `${history.length} signs`;
 }
 function stop(reason = "Camera stopped. Your session list stays here until you reset.") {
+  guided.onStop(reason);
   generation++; running = false;
   clearTimeout(timer); clearTimeout(watchdog);
   if (socket) { socket.onclose = null; socket.close(); socket = null; }
@@ -77,9 +80,11 @@ async function start() {
     socket.onmessage = ({data}) => {
       if (epoch !== generation) return;
       const result = JSON.parse(data); clearTimeout(watchdog);
-      if (result.type === "ready") { seq = 0; lastResponse = 0; sendFrame(epoch); return; }
+      if (result.type === "ready") { seq = 0; lastResponse = 0; guided.onReady(result); sendFrame(epoch); return; }
       if (result.seq !== seq - 1) { stop("Received an out-of-order result. Start a fresh session."); return; }
       const now = performance.now(), age = now - result.capture_ms;
+      guided.onFrame(result, now);
+      if (epoch !== generation) return;
       if (age > 2000) { stop("Processing fell behind by over 2 seconds. Camera released; start again to recover."); return; }
       $("processing").textContent = `${Math.round(result.processing_ms)} ms`;
       $("delay").textContent = `${Math.round(age)} ms`;
@@ -87,12 +92,12 @@ async function start() {
       lastResponse = now;
       const q = result.quality;
       $("quality").textContent = !q.body ? "Move back so both shoulders are visible" : !q.hands ? "Bring a hand into view to begin" : `${q.hands} hand${q.hands > 1 ? "s" : ""} tracked · ${q.face ? "Face visible" : "Face not detected"}`;
-      draw(result.points); candidate(result.result.label, result.result.state);
-      if (result.result.event) {
+      draw(result.points); candidate(guided.hidePredictions ? null : result.result.label, guided.hidePredictions ? "collecting" : result.result.state);
+      if (result.result.event && !guided.hidePredictions) {
         history.unshift({label: result.result.event.label, time: new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})});
         history = history.slice(0, 30); renderHistory();
       }
-      message(result.result.gap ? "A capture gap cleared the context. Begin a fresh sign." : "Processing locally · Candidate labels are experimental · No video saved");
+      message(result.result.gap ? "A capture gap cleared the context. Begin a fresh sign." : guided.active ? "Guided check running · See the test instructions below" : "Processing locally · Candidate labels are experimental · No video saved");
       timer = setTimeout(() => sendFrame(epoch), Math.max(0, 1000 / 12 - (performance.now() - lastSent)));
     };
     socket.onclose = event => { if (epoch === generation) stop(event.reason || "Connection interrupted. Camera released; start again to reconnect."); };
@@ -109,6 +114,7 @@ document.addEventListener("visibilitychange", () => { if (document.hidden && run
 try {
   const response = await fetch("/api/status"); if (!response.ok) throw new Error("status unavailable");
   const status = await response.json(); labels = status.labels; modelReady = status.model_ready;
+  guided.init(labels, modelReady);
   for (const [key, label] of Object.entries(labels)) { const chip = document.createElement("span"); chip.className = "chip"; chip.dataset.label = key; chip.textContent = label; $("vocabulary").append(chip); }
   $("start").disabled = !modelReady;
   message(modelReady ? `Experimental model: ${status.model_name}. Recognition quality is not validated. Start the camera to test.` : "No trained model found. Run the documented prepare, extract and train steps first.");

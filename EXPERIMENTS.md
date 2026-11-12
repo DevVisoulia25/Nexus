@@ -56,6 +56,21 @@ Success for this experiment: compatible artifact chain, eight traceable paired i
 ID; stage; status (planned/implemented/executed/validated); hypothesis; source commit; data/manifest hashes; seed; environment; configuration; resource cap; exact command; raw outputs; metrics with uncertainty; failures/exclusions; conclusions; smallest next experiment and cost. Register before running. Stage 3 changes exactly one factor with a paired baseline and ablation.
 # Recognition update — 2026-11-08
 
+## 2026-11-13 — guided-diagnostics engineering check
+
+Implemented a fixed camera test protocol and in-memory diagnostic capture, not
+a new model experiment. The server traces only new predictions per frame; the
+browser reports tracking, timing, candidates, acceptance and events with model
+hash and session policy. Optional no-audio recording is explicitly enabled.
+
+27 Python tests and 6 JS tests passed. A synthetic browser fixture completed a
+10-second attempt with 99 generated responses and correctly reported matching
+candidates rejected. MediaRecorder produced a 16,020-byte local video blob. A
+cancelled fixed-set attempt retained 0/39 completed and an interruption entry.
+Visible JSON parsed and the report CLI identified the synthetic fixture. Native
+download verification timed out; added and verified a visible-copy fallback.
+These results do not measure recognition, camera latency or ASL fidelity.
+
 ## 2026-11-10 — R007 audit and hand geometry
 
 User reports mainly BOOK, YES and one unspecified sign worked; no counts or

@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Guided diagnostics synthetic check</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<script type="module">
+import {createGuided} from "/static/guided.js";
+const html = new DOMParser().parseFromString(await (await fetch("/")).text(), "text/html");
+html.querySelectorAll("script").forEach(s => s.remove());
+document.body.replaceChildren(...html.body.childNodes);
+document.querySelector("h1").textContent = "Synthetic browser check";
+document.querySelector(".intro p").textContent = "Generated canvas frames and scripted decisions. No camera, ASL or recognition accuracy is tested here.";
+const canvas = document.createElement("canvas"); canvas.width = 320; canvas.height = 240;
+const ctx = canvas.getContext("2d"); let stream, frames, paint, seq = 0;
+const guided = createGuided({getStream: () => stream, startCamera() {
+  stream = canvas.captureStream(10); seq = 0;
+  guided.onReady({model: {name: "SYNTHETIC_TEST_ONLY", sha256: "test-fixture"}, session_options: {test_fixture: true}});
+  paint = setInterval(() => { ctx.fillStyle = seq % 2 ? "#176b63" : "#e5ede9"; ctx.fillRect(0,0,320,240); }, 100);
+  frames = setInterval(() => {
+    const capture = performance.now();
+    guided.onFrame({seq: seq++, capture_ms: capture, processing_ms: 1, quality: {body: true, hands: 1, face: true},
+      result: {state: "unknown", label: null, event: null},
+      diagnostics: [{candidate: "BOOK", accepted: false, score: .1, evidence_frames: 6, evidence_start_s: 0, evidence_end_s: 1}]}, capture + 1);
+  }, 100);
+}, stopCamera(reason) {
+  guided.onStop(reason); clearInterval(frames); clearInterval(paint); stream?.getTracks().forEach(t => t.stop());
+}});
+const labels = {HELLO:"Hello",THANKYOU:"Thank you",PLEASE:"Please",SORRY:"Sorry",YES:"Yes",NO:"No",HELP:"Help",WATER:"Water",BOOK:"Book",MILK1:"Milk"};
+guided.init(labels, true);
+document.getElementById("start").disabled = true;
+document.getElementById("reset").onclick = () => { guided.onStop("Fixture reset"); clearInterval(frames); clearInterval(paint); stream?.getTracks().forEach(t => t.stop()); };
+window.addEventListener("pagehide", () => { clearInterval(frames); clearInterval(paint); stream?.getTracks().forEach(t => t.stop()); });
+</script></body></html>

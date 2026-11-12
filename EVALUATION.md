@@ -1,5 +1,12 @@
 # Evaluation contract — draft v0
 
+Guided camera protocol added 2026-11-13: see docs/GUIDED_TESTING.md. Each export
+records purpose, fixed/single protocol, intended unverified labels, model hash,
+policy, interruptions and observed decisions. Evaluation sessions enforce fixed
+order and hide live predictions. Calibration and evaluation must be separate
+recordings. Neither intended-label agreement nor synthetic fixture output counts
+as ASL accuracy. The recognition acceptance gate is unchanged.
+
 ## Measured development results — 2026-11-08
 
 These are development results, not final acceptance. Final test remains untouched.
